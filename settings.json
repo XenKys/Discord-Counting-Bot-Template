@@ -1,0 +1,5 @@
+{
+    "BOT_TOKEN": "Here your bot token",
+    "MONGODB_URL": "Here your mongodb url",
+    "COUNTING_CHANNEL_ID": "Here the counting channel ID"
+}
