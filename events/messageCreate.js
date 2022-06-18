@@ -2,9 +2,11 @@ const client = require("../index")
 const countingModel = require("../models/counting")
 
 client.on("messageCreate", async (message) => {
-    if (message.channel.id != client.settings.COUNTING_CHANNEL_ID || message.author.bot || message.content == "cos" || typeof (message.content) != "number") return
+    if (message.channel.id != client.settings.COUNTING_CHANNEL_ID || message.author.bot || message.content == "cos") return
 
-    const countingData = await countingModel.findOne().catch((err) => console.log(err))
+    const countingData = await countingModel.find().catch((err) => console.log(err))
+
+    if (!countingData) return
 
     if (message.author.id == countingData.lastUserID) {
         message.reply({
@@ -24,7 +26,7 @@ client.on("messageCreate", async (message) => {
         message.react("✅")
 
         countingData.lastNumber = message.content
-        countingData.lastUser = message.author.id
+        countingData.lastUserID = message.author.id
         countingData.save()
     } else {
         message.reply({
