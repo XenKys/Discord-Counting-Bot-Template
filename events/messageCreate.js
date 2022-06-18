@@ -2,7 +2,7 @@ const client = require("../index")
 const countingModel = require("../models/counting")
 
 client.on("messageCreate", async (message) => {
-    if (message.channel.id != client.settings.COUNTING_CHANNEL_ID || message.author.bot || message.content == "cos") return
+    if (message.channel.id != client.settings.COUNTING_CHANNEL_ID || message.author.bot || message.content == "cos" || !["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"].includes(message.content)) return
 
     const countingData = await countingModel.find().catch((err) => console.log(err))
 
