@@ -4,7 +4,7 @@ const countingModel = require("../models/counting")
 client.on("messageCreate", async (message) => {
     if (message.channel.id != client.settings.COUNTING_CHANNEL_ID || message.author.bot) return
 
-    const countingData = await countingModel.find().catch((err) => console.log(err))
+    const countingData = await countingModel.findOne().catch((err) => console.log(err))
 
     if (countingData) {
         if (message.author.id == countingData.lastUserID) {
