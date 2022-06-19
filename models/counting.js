@@ -4,6 +4,7 @@ module.exports = mongo.model(
     "counting",
     new mongo.Schema({
         lastNumber: Number,
-        lastUserID: String 
+        lastUserID: String,
+        lastMessageID: String
     })
 );
