@@ -18,6 +18,7 @@
   "homepage": "https://github.com/XenKys/Discord-Counting-Bot-Template#readme",
   "dependencies": {
     "discord.js": "^13.6.0",
+    "expr-eval": "^2.0.2",
     "mongoose": "^6.2.7"
   }
 }
